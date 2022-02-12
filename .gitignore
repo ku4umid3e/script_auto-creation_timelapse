@@ -132,4 +132,5 @@ dmypy.json
 # Other
 *.mp4
 pyrightconfig.json
+set_env.sh
 
