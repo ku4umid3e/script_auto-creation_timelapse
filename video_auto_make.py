@@ -4,13 +4,14 @@ import ffmpeg
 
 def get_path():
     path = input(
-        """Please enter the absolute path to
+        """Please enter the absolute path to\
         the folder with the photo collection\n"""
         )
     return path
 
 
 def path_to_jpg(path):
+    """This function makes a list of directories."""
     folders = []
     route = os.walk(path)
 
@@ -21,6 +22,7 @@ def path_to_jpg(path):
 
 
 def video_assembly(folder, path):
+    """This function does the build and saves the video."""
     finished_video = os.path.join(path, "finished_video")
     if not os.path.isdir(finished_video):
         os.mkdir(finished_video)
@@ -35,6 +37,7 @@ def video_assembly(folder, path):
 
 
 def make_video():
+    """This function controls the process of assembling videos from images."""
     path = get_path()
     folders = path_to_jpg(path)
     for folder in folders:
@@ -43,10 +46,12 @@ def make_video():
             video_assembly(folder, path)
             print('Ok')
             print(">-<"*10)
+            # Delete the processed files
             remove_folder(path, folder, files)
 
 
 def remove_folder(path, folder, files):
+    """Here i delete the processed files."""
     for file in files:
         os.remove(os.path.join(path, folder, file))
     os.rmdir(folder)
@@ -54,3 +59,4 @@ def remove_folder(path, folder, files):
 
 if __name__ == '__main__':
     make_video()
+
