@@ -1,5 +1,10 @@
 import os
 import ffmpeg
+import logging
+
+logging.basicConfig(level=logging.INFO, filename='runtime.log', filemode='a',
+                    format='%(asctime)s %(levelname)s %(messege)s')
+
 
 
 def get_path():
@@ -44,8 +49,6 @@ def make_video():
         files = os.listdir(folder)
         if len(files) > 1000:
             video_assembly(folder, path)
-            print('Ok')
-            print(">-<"*10)
             # Delete the processed files
             remove_folder(path, folder, files)
 
@@ -59,4 +62,3 @@ def remove_folder(path, folder, files):
 
 if __name__ == '__main__':
     make_video()
-
