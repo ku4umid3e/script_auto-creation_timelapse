@@ -29,7 +29,7 @@ def main():
             connect_kwargs=connect_kwargs,
             ) as conn:
         dir_ops = RemoteDirectoryOperations(conn)
-        dir_ops.download_directories_with_files(remote_dir, '/tmp')
+        dir_ops.download_directories_with_files(remote_dir, local_dir)
 
 
 
