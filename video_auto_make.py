@@ -3,8 +3,7 @@ import ffmpeg
 import logging
 
 logging.basicConfig(level=logging.INFO, filename='runtime.log', filemode='a',
-                    format='%(asctime)s %(levelname)s %(messege)s')
-
+                    format='%(asctime)s %(levelname)s %(message)s')
 
 
 def get_path():
